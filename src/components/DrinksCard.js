@@ -18,7 +18,7 @@ const DrinksCard = ({text, setText}) => {
   
   useEffect(() => {
     getDrinks()
-  }, [text])
+  }, )
   
   return (
     <div className=''>
