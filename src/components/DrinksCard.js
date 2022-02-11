@@ -18,6 +18,7 @@ const DrinksCard = ({text, setText}) => {
   
   useEffect(() => {
     getDrinks()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   
   return (
