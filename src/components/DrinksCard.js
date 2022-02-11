@@ -7,7 +7,7 @@ const DrinksCard = ({text, setText}) => {
   const [drinks, setDrinks] = useState([])
 
   const url= `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${text}`
-  console.log(url)
+
 
   const getDrinks = async() => {
     const resp = await fetch(url)
@@ -18,7 +18,7 @@ const DrinksCard = ({text, setText}) => {
   
   useEffect(() => {
     getDrinks()
-  }, )
+  }, [])
   
   return (
     <div className=''>
