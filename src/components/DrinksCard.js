@@ -12,10 +12,9 @@ const DrinksCard = ({text, setText}) => {
   const getDrinks = async() => {
     const resp = await fetch(url)
     const data = await resp.json()
-    setDrinks(data)
+    setDrinks(data.drinks)
   }
 
-  let drinkArray = Object.values(drinks)
   
   useEffect(() => {
     getDrinks()
@@ -34,26 +33,26 @@ const DrinksCard = ({text, setText}) => {
     </tr>
   </thead>
     {
-      drinkArray.map(drink => ( 
-      <tbody key={drink[0].idDrink}>
+      drinks.map(drink => ( 
+      <tbody key={drink.idDrink}>
       <tr >
-        <td>{drink[0].strDrink}</td>
-        { drink[0].strTags === null ? 
+        <td>{drink.strDrink}</td>
+        { drink.strTags === null ? 
         "No tags"
         :
-        <td>{drink[0].strTags}</td>
+        <td>{drink.strTags}</td>
         }
-        { drink[0].strInstructions === null ? 
+        { drink.strInstructions === null ? 
         "No instructions"
         :
-        <td style={{width: "500px"}}>{drink[0].strInstructions}</td>
+        <td style={{width: "500px"}}>{drink.strInstructions}</td>
         }
-        { drink[0].strGlass === null ? 
+        { drink.strGlass === null ? 
         "No glass description"
         :
-        <td>{drink[0].strGlass}</td>
+        <td>{drink.strGlass}</td>
         }
-        <td>{drink[0].strCategory}</td>
+        <td>{drink.strCategory}</td>
         <td>
           <button className='btn btn-primary'>Order</button>
         </td>
